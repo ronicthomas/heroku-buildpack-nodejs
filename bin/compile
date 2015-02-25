@@ -17,6 +17,7 @@ heroku_dir=$build_dir/.heroku
 mkdir -p $heroku_dir/node
 warnings=$(mktemp)
 
+echo $BUILD_DIR
 echo "build_dir:$build_dir"
 echo "cache_dir:$cache_dir"
 echo "env_dir:$env_dir"
