@@ -6,7 +6,7 @@ if [ -f $1/.build_envs ]; then
 fi
 
 if [ -f $1/back-end/package.json ]; then
-  echo "Node.js" && exit 0
+  echo "$1/$BUILD_DIR" && exit 0
 elif [ -f $1/$BUILD_DIR/server.js ]; then
   echo "Node.js" && exit 0
 else
