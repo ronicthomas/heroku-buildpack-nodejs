@@ -3,10 +3,10 @@
 
 #CUSTOM_BUILD_DIR=$([ -z $BUILD_DIR ] && echo "$1" || echo "$BUILD_DIR");
 #echo "Build dir is: $CUSTOM_BUILD_DIR";
-echo "Oye yar"
-if [ -f $1/package.json ]; then
+
+if [ -f $1/back-end/package.json ]; then
   echo "Node.js" && exit 0
-elif [ -f $CUSTOM_BUILD_DIR/server.js ]; then
+elif [ -f $1//back-end/server.js ]; then
   echo "Node.js" && exit 0
 else
   echo "no" && exit 1
