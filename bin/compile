@@ -8,6 +8,8 @@ set -o pipefail   # don't ignore exit codes when piping output
 set -o posix      # more strict failures in subshells
 # set -x          # enable debugging
 
+[ -f $1/.build_envs] && source $1/.build_envs
+
 # Configure directories
 build_dir=$1
 cache_dir=$2

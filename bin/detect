@@ -2,7 +2,7 @@
 # bin/detect <build-dir>
 
 if [ -f $1/.build_envs ]; then
-    source .build_envs
+    source $1/.build_envs
 fi
 
 if [ -f $1/back-end/package.json ]; then
