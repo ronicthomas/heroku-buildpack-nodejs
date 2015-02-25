@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-if [ -f $1/.build_envs ]; then
-    source $1/.build_envs
-fi
+
+source $1/.build_envs
+
 
 if [ -f $1/back-end/package.json ]; then
   echo "$1/$BUILD_DIR" && exit 0
