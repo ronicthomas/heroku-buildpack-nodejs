@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
+if [ -f $1/.build_envs ]; then
+    source $1/.build_envs
+fi
 
-source $1/.build_envs
-
-
-if [ -f $1/back-end/package.json ]; then
-  echo "$1/$BUILD_DIR" && exit 0
+if [ -f $1/$BUILD_DIR/package.json ]; then
+  echo "Node.js" && exit 0
 elif [ -f $1/$BUILD_DIR/server.js ]; then
   echo "Node.js" && exit 0
 else
