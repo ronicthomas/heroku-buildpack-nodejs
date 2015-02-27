@@ -122,6 +122,7 @@ install_node() {
   mv /tmp/node-v$node_engine-linux-x64/* $heroku_dir/node
   chmod +x $heroku_dir/node/bin/*
   PATH=$heroku_dir/node/bin:$PATH
+  info "Path: "$PATH
 }
 
 install_iojs() {
