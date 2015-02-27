@@ -40,8 +40,8 @@ trap build_failed ERR
 ####### Determine current state
 
 head "Reading application state"
-read_current_state
-show_current_state
+read_current_state $build_dir/$BUILD_DIR
+show_current_state $build_dir/$BUILD_DIR
 
 if [ "$iojs_engine" == "" ]; then
   warn_node_engine "$node_engine"

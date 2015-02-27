@@ -65,6 +65,7 @@ get_modules_cached() {
 # environment variables (from ENV_DIR)
 
 read_current_state() {
+  local build_dir=$1
   info "package.json..."
   assert_json "$build_dir/package.json"
   iojs_engine=$(read_json "$build_dir/package.json" ".engines.iojs")
@@ -122,7 +123,6 @@ install_node() {
   mv /tmp/node-v$node_engine-linux-x64/* $heroku_dir/node
   chmod +x $heroku_dir/node/bin/*
   PATH=$heroku_dir/node/bin:$PATH
-  info "Path: "$PATH
 }
 
 install_iojs() {
