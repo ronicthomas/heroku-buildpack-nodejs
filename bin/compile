@@ -17,7 +17,7 @@ build_dir=$1/$BUILD_DIR
 cache_dir=$2
 env_dir=$3
 bp_dir=$(cd $(dirname $0); cd ..; pwd)
-heroku_dir=$build_dir/.heroku
+heroku_dir=$1/.heroku
 mkdir -p $heroku_dir/node
 warnings=$(mktemp)
 
