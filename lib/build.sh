@@ -65,6 +65,7 @@ get_modules_cached() {
 # environment variables (from ENV_DIR)
 
 read_current_state() {
+  #Modified to accept an argument to specify a custom build directory
   local build_dir=$1
   info "package.json..."
   assert_json "$build_dir/package.json"

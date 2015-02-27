@@ -26,10 +26,7 @@ source $bp_dir/lib/common.sh
 source $bp_dir/lib/build.sh
 source $bp_dir/lib/warnings.sh
 
-info "build_dir:$build_dir"
-info "cache_dir:$cache_dir"
-info "env_dir:$env_dir"
-info "bp_dir:$bp_dir"
+
 
 # Avoid GIT_DIR leak from previous build steps
 unset GIT_DIR
