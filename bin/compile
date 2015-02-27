@@ -13,7 +13,7 @@ if [ -f $1/.build_envs ]; then
 fi
 
 # Configure directories
-build_dir=$1/$BUILD_DIR
+build_dir=$1
 cache_dir=$2
 env_dir=$3
 bp_dir=$(cd $(dirname $0); cd ..; pwd)
@@ -21,16 +21,15 @@ heroku_dir=$1/.heroku
 mkdir -p $heroku_dir/node
 warnings=$(mktemp)
 
-echo $BUILD_DIR
-echo "build_dir:$build_dir"
-echo "cache_dir:$cache_dir"
-echo "env_dir:$env_dir"
-echo "bp_dir:$bp_dir"
-
 # Load dependencies
 source $bp_dir/lib/common.sh
 source $bp_dir/lib/build.sh
 source $bp_dir/lib/warnings.sh
+
+info "build_dir:$build_dir"
+info "cache_dir:$cache_dir"
+info "env_dir:$env_dir"
+info "bp_dir:$bp_dir"
 
 # Avoid GIT_DIR leak from previous build steps
 unset GIT_DIR
@@ -64,13 +63,13 @@ install_npm
 ####### Build the project's dependencies
 
 head "Building dependencies"
-cd $build_dir
+cd $build_dir/$BUILD_DIR
 build_dependencies
 
 ####### Create a Procfile if possible
 
 head "Checking startup method"
-ensure_procfile "$start_method" "$build_dir"
+ensure_procfile "$start_method" "$1"
 warn_start "$start_method"
 
 ####### Finalize the build
